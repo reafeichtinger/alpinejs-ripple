@@ -1,20 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Alpine JS Plugin</title>
 
-    <script src="https://cdn.tailwindcss.com"></script>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alpine JS Plugin</title>
 
-    <script defer src="./dist/FILE.min.js"></script>
+  <!-- Import js and css -->
+  <script defer src="./dist/ripple.min.js"></script>
+  <link rel="stylesheet" href="./dist/ripple.css">
 
-    <script
-      defer
-      src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"
-    ></script>
-  </head>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
-  <body> </body>
+</head>
+
+<body class="min-h-screen min-w-screen bg-gray-50 flex items-center justify-center overflow-x-hidden py-24">
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 min-w-" x-data>
+    <!-- Default x-ripple -->
+    <span class="col-span-full">Default:</span>
+    <button class="p-2 bg-indigo-600 text-white" x-ripple>Ripple Default</button>
+
+    <!-- Custom duration -->
+    <span class="col-span-full">Duration:</span>
+    <button class="p-2 bg-indigo-600 text-white" x-ripple.duration.2s>2 Seconds</button>
+    <button class="p-2 bg-indigo-600 text-white" x-ripple.duration.1_5s>1.5 Seconds</button>
+    <button class="p-2 bg-indigo-600 text-white" x-ripple.duration.250ms>250 Milliseconds</button>
+
+    <!-- Custom radius -->
+    <span class="col-span-full">Radius:</span>
+    <button class="p-2 bg-indigo-600 text-white" x-ripple.duration.2s.radius.0px>0 Pixel</button>
+    <button class="p-2 bg-indigo-600 text-white" x-ripple.duration.2s.radius.3rem>3 rem</button>
+    <button class="p-2 bg-indigo-600 text-white" x-ripple.duration.2s.radius.25%>25 Percent</button>
+
+    <!-- Custom color -->
+    <span class="col-span-full">Color:</span>
+    <button class="p-2 bg-indigo-600 text-white" x-ripple.color.red>Red</button>
+    <button class="p-2 bg-indigo-600 text-white" x-ripple.color.#f00>Red short hex</button>
+    <button class="p-2 bg-indigo-600 text-white" x-ripple.color.#ff0000>Red long hex</button>
+    <div style="--some-color: radial-gradient(
+        rgba(255, 0, 0, 1) 0%,
+        rgba(255, 154, 0, 1) 10%,
+        rgba(208, 222, 33, 1) 20%,
+        rgba(79, 220, 74, 1) 30%,
+        rgba(63, 218, 216, 1) 40%,
+        rgba(47, 201, 226, 1) 50%,
+        rgba(28, 127, 238, 1) 60%,
+        rgba(95, 21, 242, 1) 70%,
+        rgba(186, 12, 248, 1) 80%,
+        rgba(251, 7, 217, 1) 90%,
+        rgba(255, 0, 0, 1) 100%
+    );">
+      <button class="p-2 bg-indigo-600 text-white w-full" x-ripple.color.--some-color>Gradient via
+        variable</button>
+    </div>
+
+    <!-- Custom opacity -->
+    <span class="col-span-full">Opacity:</span>
+    <button class="p-2 bg-indigo-600 text-white" x-ripple.duration.2s.opacity.0>0 Opacity</button>
+    <button class="p-2 bg-indigo-600 text-white" x-ripple.duration.2s.opacity.0_5>0.5 Opacity</button>
+    <button class="p-2 bg-indigo-600 text-white" x-ripple.duration.2s.opacity.1>1 Opacity</button>
+
+    <!-- Custom timing -->
+    <span class="col-span-full">Timing:</span>
+    <button class="p-2 bg-indigo-600 text-white" x-ripple.duration.2s.timing.ease>ease</button>
+    <button class="p-2 bg-indigo-600 text-white" x-ripple.duration.2s.timing.ease-in>ease-in</button>
+    <button class="p-2 bg-indigo-600 text-white" x-ripple.duration.2s.timing.ease-out>ease-out</button>
+    <button class="p-2 bg-indigo-600 text-white" x-ripple.duration.2s.timing.ease-in-out>ease-in-out</button>
+    <button class="p-2 bg-indigo-600 text-white" x-ripple.duration.2s.timing.linear>linear</button>
+    <div style="--some-timing: cubic-bezier(0.1, 0.7, 1, 0.1)">
+      <button class="p-2 bg-indigo-600 text-white w-full" x-ripple.duration.2s>Via variable</button>
+    </div>
+
+    <!-- Using ::before -->
+    <span class="col-span-full">::before:</span>
+    <button class="p-2 bg-indigo-600 text-white" x-ripple.before>Using ::before instead of ::after</button>
+
+    <!-- Overwrite via css variables -->
+    <span class="col-span-full">Overwrite via css variables:</span>
+    <div
+      style="--ripple-duration: 2s; --ripple-radius: 100px; --ripple-color: red; --ripple-timing: linear; --ripple-opacity: 1;">
+      <button class="p-2 bg-indigo-600 text-white w-full" x-ripple>Css variables on ::after</button>
+    </div>
+    <div
+      style="--ripple-duration: 2s; --ripple-radius: 100px; --ripple-color: red; --ripple-timing: linear; --ripple-opacity: 1;">
+      <button class="p-2 bg-indigo-600 text-white w-full" x-ripple.before>Css variables on ::before</button>
+    </div>
+  </div>
+
+</body>
+
 </html>

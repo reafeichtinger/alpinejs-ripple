@@ -1,15 +1,21 @@
 {
-  "name": "PLUGIN",
+  "name": "alpinejs-ripple",
   "version": "1.0.0",
   "description": "DESCRIPTION",
   "keywords": [
     "Alpine",
     "Alpine JS",
     "Alpine JS Plugin",
-    "Alpine JS Plugins"
+    "Alpine JS Plugins",
+    "Ripple",
+    "Ripple Effect",
+    "CSS"
   ],
-  "module": "dist/FILE.esm.js",
-  "unpkg": "dist/FILE.min.js",
+  "module": "dist/ripple.esm.js",
+  "unpkg": "dist/ripple.min.js",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "node scripts/build.js"
   },
