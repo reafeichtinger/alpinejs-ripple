@@ -1,8 +1,9 @@
 # alpinejs-ripple
 
-![](https://img.shields.io/npm/v/alpinejs-ripple)
-![](https://img.shields.io/npm/dt/alpinejs-ripple)
-![](https://img.shields.io/github/license/markmead/alpinejs-ripple)
+![Package version](https://img.shields.io/npm/v/alpinejs-ripple)
+![NPM Downloads](https://img.shields.io/npm/dy/alpinejs-ripple)
+![Package License](https://img.shields.io/github/license/reafeichtinger/alpinejs-ripple)
+![NPM package minimized gzipped size](https://img.shields.io/bundlejs/size/alpinejs-ripple)
 
 A simple yet powerful alpinejs directive to add ripple effects to any element using the `::before` or `::after` css selectors. No new elements are added to the DOM making this very stable. Simply use the directive `x-ripple` on any HTML element.
 
@@ -43,10 +44,17 @@ Then load the Alpine plugin in your main javascript file.
 ```js
 import Alpine from 'alpinejs'
 import Ripple from 'alpinejs-ripple'
+import 'alpinejs-ripple/dist/ripple.css' // Optional css import via js
 
 Alpine.plugin(Ripple)
 
 Alpine.start()
+```
+
+You can also import the css separately. This is NOT NEEDED if you already imported it via cdn or javascript.
+
+```css
+@import 'alpinejs-ripple/dist/ripple.css';
 ```
 
 ## Examples
